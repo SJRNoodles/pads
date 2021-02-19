@@ -53,7 +53,8 @@ def indicate(dir):
 def bgShow():
     window.blit(bg,(0,0))
 def gameStart():
-  from  Songs/ + selectedSong import songData
+  selectedSong = "test"
+  from song import songData
   clock = pygame.time.Clock()
   #reference variables
   running = True
@@ -75,7 +76,8 @@ def gameStart():
   while running:
 
       window.fill((0,0,0))
-  
+      from song import BPM
+      BPMS = BPM / 60
       for event in pygame.event.get():
           if event.type == pygame.QUIT:
             running = False
@@ -92,17 +94,20 @@ def gameStart():
           if hitPlayed == 0:
               hitPlayed = 1
               playsound('snd/hitSnd.wav')
+      
+
       bgShow()
       pads(direction)
       score_show(score)
       if index < len(songData):
          if songData[index] != direction:
-            indicate(direction)
-            print("bruh")
+            if songData[index] != "-":
+                indicate(direction)
+                print("bruh") 
       pygame.display.update()
   
       gameTick=gameTick+1
-      if gameTick >= 25:
+      if gameTick >= BPMS:
           print("dir" + direction)
           if index < len(songData):
               print(songData[index])
@@ -115,7 +120,7 @@ def gameStart():
           hit = 0
           hitPlayed = 0
         
-      clock.tick(60)
+      clock.tick(30)
 
 def title():
     logo = pygame.image.load('img/logo.png')
@@ -129,7 +134,7 @@ def title():
                 running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    import thesong
+                    
                     gameStart()
                     print("start game")
         window.blit(bg,(0,0))

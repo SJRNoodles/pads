@@ -1,5 +1,5 @@
-python -u C:\Users\Johnel\Desktop\pads\game.py
-pyinstaller C:\Users\Johnel\Desktop\pads\game.py --onefile --noconsole
+python -u C:\Users\<you>\Documents\Github\pads\game.py
+pyinstaller C:\Users\<you>\Documents\Github\pads\game.py --onefile --noconsole
 ^^
 drag img and snd folders
 
