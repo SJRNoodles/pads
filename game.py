@@ -1,8 +1,9 @@
 import pygame
 from playsound import playsound
-import song
+
 
 selectedSong = "test"
+thesong = "Songs/" + selectedSong
 
 pygame.init()
 window = pygame.display.set_mode((800,600))
@@ -52,6 +53,7 @@ def indicate(dir):
 def bgShow():
     window.blit(bg,(0,0))
 def gameStart():
+  from  Songs/ + selectedSong import songData
   clock = pygame.time.Clock()
   #reference variables
   running = True
@@ -71,8 +73,7 @@ def gameStart():
   font = pygame.font.Font('freesansbold.ttf',32)
   
   while running:
-      import song
-      from song import songData
+
       window.fill((0,0,0))
   
       for event in pygame.event.get():
@@ -128,9 +129,9 @@ def title():
                 running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    import song
+                    import thesong
                     gameStart()
-                    print("start")
+                    print("start game")
         window.blit(bg,(0,0))
         window.blit(logo,(300,200))
         pygame.display.update()
