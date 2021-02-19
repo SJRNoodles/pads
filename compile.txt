@@ -1,0 +1,10 @@
+python -u C:\Users\Johnel\Desktop\pads\game.py
+pyinstaller C:\Users\Johnel\Desktop\pads\game.py --onefile --noconsole
+^^
+drag img and snd folders
+
+get dependencys
+
+pip install pygame --target=data/
+pip install playsound --target=data/
+pip install pyinstaller 
