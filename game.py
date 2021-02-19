@@ -21,6 +21,7 @@ gameTick = 0
 index = 0
 hit = "-"
 hitPlayed = 0
+
 font = pygame.font.Font('freesansbold.ttf',32)
 
 running = True
@@ -68,6 +69,7 @@ def gameStart():
   hit = "-"
   hitPlayed = 0
   font = pygame.font.Font('freesansbold.ttf',32)
+  
   while running:
       import song
       from song import songData
@@ -115,8 +117,12 @@ def gameStart():
       clock.tick(60)
 
 def title():
+    logo = pygame.image.load('img/logo.png')
+    bg = pygame.image.load('img/playfield.png')
+
     running = True
     while running:
+        window.fill((0,0,0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -125,5 +131,8 @@ def title():
                     import song
                     gameStart()
                     print("start")
+        window.blit(bg,(0,0))
+        window.blit(logo,(300,200))
+        pygame.display.update()
 title() # start running the game
 pygame.quit()
